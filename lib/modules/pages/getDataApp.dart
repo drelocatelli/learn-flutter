@@ -13,6 +13,10 @@ class GetDataPage extends StatelessWidget {
   final DataController c = Get.put(DataController());
 
   TextEditingController _dataController = TextEditingController();
+
+  void _submitForm() {
+    c.setName(_dataController.text);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -31,11 +35,10 @@ class GetDataPage extends StatelessWidget {
                   children: [
                     TextFormField(
                       controller: _dataController,
+                      onFieldSubmitted: (value) => _submitForm(),
                     ),
                     SizedBox(height: 15),
-                    ElevatedButton(onPressed: () {
-                      c.setName(_dataController.text);
-                    }, child: Text("Set data")),
+                    ElevatedButton(onPressed: () => _submitForm(), child: Text("Set data")),
                   ],
                 ),
               )
