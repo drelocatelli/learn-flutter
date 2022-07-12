@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 import 'package:testing/components/app_bar.dart';
 import 'package:testing/controller/providers/counter_provider.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class ProviderCounterPage extends StatefulWidget {
+  const ProviderCounterPage({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<ProviderCounterPage> createState() => _ProviderCounterPageState();
 }
 
-class _HomeState extends State<Home> {
+class _ProviderCounterPageState extends State<ProviderCounterPage> {
   @override
   Widget build(BuildContext context) {
     return MainBar(
@@ -20,7 +18,7 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Basic counter app"),
+            Text("Provider counter app"),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
