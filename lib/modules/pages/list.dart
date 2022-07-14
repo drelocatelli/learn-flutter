@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:testing/components/app_bar.dart';
 import 'package:testing/modules/pages/getCounterApp.dart';
 import 'package:testing/modules/pages/getDataApp.dart';
+import 'package:testing/modules/pages/getPersonApp.dart';
 import 'package:testing/modules/pages/providerCounterApp.dart';
 
 class ListPage extends StatelessWidget {
@@ -32,6 +33,10 @@ class ListPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(onPressed: () => Get.to(() => GetDataPage()), child: Text("Getx data")),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(onPressed: () => Get.to(() => GetPersonApp()), child: Text("Getx person data")),
             ),
           ],
         ),
