@@ -2,7 +2,10 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:testing/bloc/network/network_bloc.dart';
+import 'package:testing/controller/network_controller.dart';
 
 class NetworkChecker extends StatefulWidget {
   const NetworkChecker({Key? key}) : super(key: key);
@@ -12,27 +15,24 @@ class NetworkChecker extends StatefulWidget {
 }
 
 class _NetworkCheckerState extends State<NetworkChecker> {
-  bool _isConnected = false;
-
   @override
   void initState() {
     super.initState();
+    NetworkController.listenInternetConnection(context); 
   }
-
-  _checkNetworkConnection() async {
-    bool result = await InternetConnectionChecker().hasConnection;
-    _isConnected = result;
-    setState(() { });
-  }
-  
 
   @override
   Widget build(BuildContext context) {
-    _checkNetworkConnection();
-
-     return Container(
-      padding: EdgeInsets.only(right: 10),
-      child: Icon(Icons.fiber_manual_record, color: _isConnected ? Color.fromARGB(255, 57, 240, 63) : Colors.red),
-     );
+    return BlocBuilder<NetworkBloc, NetworkState>(
+      builder: (context, state) {
+        print(state.isConnected);
+        return Container(
+          padding: EdgeInsets.only(right: 10),
+          child: Icon(Icons.fiber_manual_record,
+              color:
+                  state.isConnected ? Color.fromARGB(255, 57, 240, 63) : Colors.red),
+        );
+      },
+    );
   }
 }
