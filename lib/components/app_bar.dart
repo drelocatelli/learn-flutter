@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:testing/components/network_check.dart';
 
 class MainBar extends StatelessWidget {
 
@@ -14,6 +15,9 @@ class MainBar extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text("Testing"),
+        actions: [
+          NetworkChecker()
+        ],
       ),
       body: child,
     );
