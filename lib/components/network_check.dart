@@ -27,11 +27,8 @@ class _NetworkCheckerState extends State<NetworkChecker> {
       builder: (context, state) {
         print(state.isConnected);
         return Container(
-          padding: EdgeInsets.only(right: 10),
-          child: Icon(Icons.fiber_manual_record,
-              color:
-                  state.isConnected ? Color.fromARGB(255, 57, 240, 63) : Colors.red),
-        );
+          padding: EdgeInsets.only(right: 20),
+          child: Icon(state.isConnected ? Icons.signal_wifi_4_bar : Icons.signal_wifi_off));
       },
     );
   }
