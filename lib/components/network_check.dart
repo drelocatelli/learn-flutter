@@ -25,7 +25,6 @@ class _NetworkCheckerState extends State<NetworkChecker> {
   Widget build(BuildContext context) {
     return BlocBuilder<NetworkBloc, NetworkState>(
       builder: (context, state) {
-        print(state.isConnected);
         return Container(
           padding: EdgeInsets.only(right: 20),
           child: Icon(state.isConnected ? Icons.signal_wifi_4_bar : Icons.signal_wifi_off));

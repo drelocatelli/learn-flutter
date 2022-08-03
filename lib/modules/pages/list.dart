@@ -3,10 +3,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:testing/components/app_bar.dart';
+import 'package:testing/modules/pages/animations.dart';
 import 'package:testing/modules/pages/getCounterApp.dart';
 import 'package:testing/modules/pages/getDataApp.dart';
 import 'package:testing/modules/pages/getPersonApp.dart';
 import 'package:testing/modules/pages/providerCounterApp.dart';
+import 'package:testing/modules/pages/futureApp.dart';
 
 class ListPage extends StatelessWidget {
   const ListPage({Key? key}) : super(key: key);
@@ -37,6 +39,15 @@ class ListPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(onPressed: () => Get.to(() => GetPersonApp()), child: Text("Getx person data")),
+            ),
+            Text("-----------------------------------------------------"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(onPressed: () => Get.to(() => FutureApp()), child: Text("Future App")),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(onPressed: () => Get.to(() => AnimationsPage()), child: Text("Animations")),
             ),
           ],
         ),
